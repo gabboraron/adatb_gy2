@@ -1,5 +1,5 @@
 # Adatbázisok alapok
-másol ezt:
+### másol ezt:
 
 ```SQL
 DROP TABLE SZERET; 
@@ -105,7 +105,7 @@ SELECT * FROM Fiz_Kategoria;
 `select gyumolcs from szeret where nev='Micimackó';`
 
 - Melyek azok a gyümölcsök, amelyeket Micimackó nem szeret
-```
+```SQL
 (SELECT gyumolcs FROM szeret)
 MINUS
 (SELECT gyumolcs FROM szeret WHERE nev='Micimackó');
@@ -115,7 +115,7 @@ MINUS
 SELECT nev FROM szeret WHERE gyumolcs='alma';
 
 --Kik nem szeretik a körtét?
-```
+```SQL
 (SELECT nev FROM szeret)
 MINUS
 (SELECT nev FROM szeret WHERE gyumolcs='körte');
@@ -124,19 +124,19 @@ MINUS
 
 `SELECT DISTINCT nev FROM szeret WHERE gyumolcs='alma' or gyumolcs='körte';`
 VAGY
-```
+```SQL
 SELECT nev FROM szeret WHERE gyumolcs='alma' 
 UNION 
 SELECT nev FROM szeret WHERE gyumolcs='körte';
 ```
 - Kik szeretik az almát is és a körtét is?
-```
+```SQL
 SELECT nev FROM szeret WHERE gyumolcs='alma' 
 INTERSECT
 SELECT nev FROM szeret WHERE gyumolcs='körte';
 ```
 - Kik azok, akik szeretik az almát, de nem szeretik a körtét?
-```
+```SQL
 SELECT nev FROM szeret WHERE gyumolcs='alma' 
 MINUS
 SELECT nev FROM szeret WHERE gyumolcs='körte';
